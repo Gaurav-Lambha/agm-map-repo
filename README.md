@@ -1,6 +1,9 @@
 # Getting started with Angular Google Maps (AGM)
 Angular Google Maps (AGM) If you just want to play with AGM and don’t want to set up a full project with NPM, you can use the following my agm-map repo. It has all the dependencies to play with Angular, Typescript and of course angular-google-maps
 
+# Further help
+To get more help on the Angular Google Maps https://angular-maps.com/guides/getting-started/
+
 # AgmMapDemo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
