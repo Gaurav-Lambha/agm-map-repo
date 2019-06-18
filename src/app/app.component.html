@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+  <div class="div-left border">
+    <div class="padding-5">
+      <input type="text" class="text-box" (keyup)='search($event)' placeholder='Search by hotel name...'>
+
+      <div class="hotel-list">
+        <div class="hotel-info" *ngFor="let item of _hotelData" (click)="selectHotel(item, 'hotel')">
+          <div class="position-fab participants">Participants: {{item.maxParticipants}}</div>
+          <div class="hotel-img">
+            <img [src]="item.mainPhotoUrl">
+          </div>
+          <div class="position-fab currency">From: {{item.ratePerHour | currency}}</div>
+          <div>
+            <h2>{{item?.name}}</h2>
+            <h5>{{item?.city}} &nbsp; {{item?.countryFullName}}</h5>
+          </div>
+        </div>
+        <div class="error-msg" *ngIf="!_hotelData.length">
+          Hotel Not found!!!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div-right  border">
+    <div class="padding-5" *ngIf="_positions.length>0">
+      <agm-map [latitude]="_positions[0]['lat']" [longitude]="_positions[0]['lon']" [zoom]="13">
+        <agm-marker *ngFor="let mark of _positions" [latitude]="mark.lat" [longitude]="mark.lon"
+          [iconUrl]="mark.iconUrl" (markerClick)="selectHotel(mark, 'marker')"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>
